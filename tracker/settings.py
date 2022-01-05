@@ -33,7 +33,7 @@ if DEBUG:
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-ALLOWED_HOSTS: List[str] = []
+ALLOWED_HOSTS: List[str] = ['www.dev.yojonesy.com', 'dev.yojonesy.com', '206.189.182.217', '127.0.0.1']
 
 
 # Application definition
@@ -132,6 +132,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = '/home/curtis/django-issue-tracker/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -3,7 +3,9 @@ from django.db import models
 
 
 class User(AbstractUser):
-    is_developer = models.BooleanField(default=True)
+    is_designer = models.BooleanField(default=False)
+    is_developer = models.BooleanField(default=False)
+    projects = models.ManyToManyField(to='Project', blank=True)
 
 
 class Project(models.Model):

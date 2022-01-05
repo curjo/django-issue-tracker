@@ -6,14 +6,15 @@ from django.db.models.signals import post_save, post_init
 class StatusChoice(models.IntegerChoices):
     OPEN = 0
     IN_PROGRESS = 1
-    WONT_FIX = 2
-    RESOLVED = 3
+    BLOCKED = 2
+    WONT_FIX = 3
+    RESOLVED = 4
 
 
 # CURTIS: New selection choices
 class PlatformChoice(models.IntegerChoices):
-    ANDROID = 0
-    IOS = 1
+    IOS = 0
+    ANDROID = 1
     CHROME = 2
     SAFARI = 3
     FIREFOX = 4
@@ -36,10 +37,11 @@ class Issue(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
 
-    # CURTIS: New field
+    # CURTIS: New fields (type, creation_date)
     type = models.IntegerField(
         default=TypeChoice.BUG, choices=TypeChoice.choices
     )
+    creation_date = models.DateField(null=True)
 
     status = models.IntegerField(
         default=StatusChoice.OPEN, choices=StatusChoice.choices
