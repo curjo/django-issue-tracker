@@ -17,7 +17,7 @@ class IssueAdmin(ImportExportModelAdmin):
     filter_horizontal = ("linked_issues",)
 
     # CURTIS - hide state value used to trigger logic on saving issue changes
-    exclude = ('state',)
+    exclude = ('state', 'linked_issues',)
 
     # CURTIS: Override get_queryset to get only issues associated with user's projects
     def get_queryset(self, request):

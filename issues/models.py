@@ -18,6 +18,7 @@ class PlatformChoice(models.IntegerChoices):
     CHROME = 2
     SAFARI = 3
     FIREFOX = 4
+    WINDOWS = 5
 
 
 class TypeChoice(models.IntegerChoices):
